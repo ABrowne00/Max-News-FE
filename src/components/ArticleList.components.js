@@ -18,8 +18,8 @@ const ArticleList = () => {
                 return (
                     <li key={article.article_id} className='articleCard'>
                        <h3> {article.title} </h3>
-                       <h4> {article.topic} </h4>
-                       <h5>{article.author}</h5>
+                       <h4 className='articleTopic'> {article.topic} </h4>
+                       <h5>Author: {article.author}</h5>
                         </li>
                 )
             })}

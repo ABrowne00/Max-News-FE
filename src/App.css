@@ -1,7 +1,17 @@
+body {
+  background: #F3F3F3;
+}
+
+
+
+
 .header {
   text-align: center;
 }
 
+.navBar {
+  margin: 20px;
+}
 
 .homeNav {
   margin: 10px;
@@ -13,13 +23,23 @@
 
 .articleList {
   list-style-type: none;
-  padding: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 
 .articleCard {
-  text-align: center;
-  border: 1px solid blue;
+  background: #FFF;
+  margin: 10px ;
+  padding: 20px;
+  /* border: 2px groove black; */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(#000, 0.2);
+  cursor: pointer;
 }
 
 
