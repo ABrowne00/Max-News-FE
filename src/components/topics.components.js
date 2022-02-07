@@ -1,22 +1,26 @@
 import { getTopics } from "../utils/api";
 import React, { useState, useEffect } from 'react';
+import NavBar from "./NavBar.components";
 
 
-const Example = () => {
+const Topics = () => {
 
     const [topics, setTopics] = useState([]);
 
     useEffect(() => {
         getTopics().then((res) => {
-            console.log(res)
+            setTopics(res)
         })
     }, []);
 
     return (
-        <h1>hi</h1>
+        <div className="topicsList">
+        <h1>Topics</h1>
+        <NavBar />
+        </div>
     )
 
 
 }
 
-export default Example
+export default Topics

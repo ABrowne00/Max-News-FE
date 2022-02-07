@@ -1,6 +1,26 @@
+.header {
+  text-align: center;
+}
 
 
+.homeNav {
+  margin: 10px;
+}
 
+.topicsNav {
+  margin: 10px
+}
+
+.articleList {
+  list-style-type: none;
+  padding: 10px 0px;
+}
+
+
+.articleCard {
+  text-align: center;
+  border: 1px solid blue;
+}
 
 
 
