@@ -15,7 +15,7 @@ function App() {
       </Routes>
       </BrowserRouter>
      
-    <ArticleList />
+    
     </div>
   );
 }
@@ -25,7 +25,7 @@ export default App;
 
 
 
-{/* <>
+/* <>
 <Header />
 <h2>List of items</h2>
 <ul>
@@ -37,4 +37,4 @@ export default App;
         )
     })}
 </ul>
-</> */}
+</> */
