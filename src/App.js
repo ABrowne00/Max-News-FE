@@ -1,7 +1,7 @@
-import Topics from './components/topics.components';
+import Topics from './components/Topics.components';
 import Header from './components/Header.components';
 import ArticleList from './components/ArticleList.components';
-import ArticleId from './utils/ArticleId.components';
+import ArticleId from './components/ArticleId.components';
 import './App.css';
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -14,7 +14,7 @@ function App() {
         <Route path='/' element={<Header />  }></Route>
         <Route path="/articles" element={<ArticleList />}></Route>
         <Route path='/articles/:article_id' element={<ArticleId />}></Route>
-   {/* <Route path='/articles/:article_id' element={<ArticleId ?>}></Route> */}
+       {/* <Route path='/articles?topic=cooking' element={<Topics />}></Route> */}
    </Routes>
       </BrowserRouter>
      

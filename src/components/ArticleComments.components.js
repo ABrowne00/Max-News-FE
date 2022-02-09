@@ -1,6 +1,7 @@
 import { getComments } from "../utils/api";
 import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
+import AddComment from "./AddComment.components";
 
 const Comments = () => {
     const {article_id} = useParams();
@@ -14,6 +15,7 @@ const Comments = () => {
 
     return (
         <div className="articleComments">
+           <AddComment />
             <ul className="commentList">
                 {comments.map((comment) => {
                     return (

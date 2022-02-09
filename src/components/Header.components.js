@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <div className='header'>
         <h1>Max News</h1>
-        <NavBar />
+       
         <ArticleList />
         </div>
     )
