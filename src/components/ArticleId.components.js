@@ -3,6 +3,7 @@ import Comments from "../components/ArticleComments.components";
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Expandable from "../components/Exapandable.components";
+import NavBar from "./NavBar.components";
 
 
 
@@ -25,7 +26,7 @@ const ArticleId = (votes) => {
         setVotes((currVotes) => currVotes + 1);
         updateVotes(article_id)
         {article.votes += 1}
-        // document.getElementById('myUp').disabled = true;
+        document.getElementById('myUp').disabled = true;
     }
 
    
@@ -34,6 +35,7 @@ const ArticleId = (votes) => {
 
     return (
         <div className='SingleArticle'>
+            <NavBar />
             <div className='centerArticle'>
                  <h2>{article.title}</h2>
                  <h5>{article.author}</h5>

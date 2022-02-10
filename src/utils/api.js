@@ -11,15 +11,15 @@ export const getTopics = () => {
     })
 }
 
-export const getArticles  = (searchTopic, sortBy, order) => {
+export const getArticles  = (searchTopic, sortValue, order) => {
 
     let path = '/articles';
 
     if (searchTopic) {
         path += `?topic=${searchTopic}`
     }
-    else if (sortBy) {
-        path += `?sort_by=${sortBy}`
+    else if (sortValue) {
+        path += `?sort_by=${sortValue}`
     }
     else if (order) {
         path += `?order_by=${order}`
@@ -53,9 +53,15 @@ export const downVote = (article_id) => {
     })
 }
 
-export const postComment = (article_id, author, body) => {
-    return newsApi.post(`/articles/${article_id}/comments`, {author, body})
+export const postComment = (article_id, request) => {
+    return newsApi.post(`/articles/${article_id}/comments`, request)
     .then((res) => {
         return res.data.comment
+    })
+}
+
+export const deleteComment = (comment_id) => {
+    return newsApi.delete(`/comments/${comment_id}`).then((res) => {
+        return res
     })
 }

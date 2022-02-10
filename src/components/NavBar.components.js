@@ -1,17 +1,43 @@
 import { Link } from "react-router-dom";
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from "../utils/Context";
 
 const NavBar = () => {
 
+const {user, setUser } = useContext(UserContext)
 
     return (
-        <nav className="navBar">
+        <>
+        <div className="navBar">
+        <h1>Max News</h1>
+        <nav >
         <Link to='/' className="homeNav">Home</Link>
-        <Link to='/articles' className='topicsNav'>Topics</Link>
+        <label for='topics'>Topics: 
         <Link to='/articles?topic=cooking' className='cookNav'>Cooking</Link>
-        <Link to='/articles?sort_by=votes' className='voteSort'>Votes</Link>
-        <Link to='/articles?order_by=asc' className='dateSort'>Date</Link>
-        </nav>
+        <Link to='/articles?topic=coding' className='codingNav'>Coding</Link>
+        <Link to='/articles?topic=football' className='footballNav'>Football</Link>
+        </label>
+       </nav>
+       
+        <div className="login">
+            {user.username ? (
+                <div className='loggedIn'>
+                    <p>Logged in as {user.username}</p>
+                </div>
+            ) : (
+                <button className='logBtn' onClick={() => {
+                    setUser({
+                        username: 'jessjelly',
+                        name: 'Jess Jelly',
+                        avatar_url: 'https://media.istockphoto.com/photos/red-jelly-pudding-picture-id499660141?k=20&m=499660141&s=612x612&w=0&h=1WCwfMnW8QSR7GD5elBXHUYX3kLfZCWo7b5IYqiDtSA='
+                    })
+                }}>Log In</button>
+            )
+            }
+        </div>
+       
+</div>
+        </>
     )
 }
 
@@ -21,22 +47,3 @@ const NavBar = () => {
 export default NavBar
 
 
-
-
-
-
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const NavBar = () => {
-
-//     return (
-//         <nav className="navbar">
-//             <Link to='/' className="homeNav">Home</Link>
-//             <Link to='/categories'className="catNav">Categories</Link>
-//             <Link to='/items' className="itemNav">Items</Link>
-//             <Link to='/sell-item' className="sellNav">SellSellSell</Link>
-//      </nav>
-//     )
-// }

@@ -3,32 +3,36 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import NavBar from "./NavBar.components";
 import { useSearchParams } from "react-router-dom";
-
+import SortBy from "./sortBy.components";
 
 const ArticleList = () => {
 
     let [searchParams, setSearchParams] = useSearchParams();
     const [articles, setArticles] = useState([])
+    const [sortValue, setSortValue] = useState('created_at')
 
     const searchTopic = searchParams.get('topic')
-    const sortBy =searchParams.get('sort_by')
     const order = searchParams.get('order_by')
-   
+    
+
 
     
 
     useEffect(() => {
-        getArticles(searchTopic, sortBy, order).then((res) => {
+        getArticles(searchTopic, sortValue, order).then((res) => {
             setArticles(res)
             
         })
-    }, [searchTopic, sortBy, order]);
+    }, [searchTopic, sortValue, order]);
+
+    
 
     return (
         
         
         <div className="articles">
             <NavBar />
+            <SortBy sortValue={sortValue} setSortValue={setSortValue}/>
         <ul className='articleList'>
             {articles.map((article) => {
                 return (
@@ -39,6 +43,8 @@ const ArticleList = () => {
                        <h5>Author: {article.author}</h5>
                        <h6>Comments: {article.comment_count}</h6>
                        <h6>Date: {article.created_at}</h6>
+                       <p>Votes: {article.votes}</p>
+                       
                         </li>
                 )
             })}

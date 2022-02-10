@@ -1,10 +1,14 @@
 import { postComment } from "../utils/api";
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router";
 
-const AddComment = () => {
+import ArticleComments from '../components/ArticleComments.components'
+import Comments from "../components/ArticleComments.components";
+import { UserContext } from "../utils/Context";
+
+const AddComment = (  {comments, setComments } ) => {
     const [comment, setComment] = useState('')
-    const  author  = 'jessjelly';
+    const   { user }  = useContext(UserContext);
     const { article_id } = useParams();
 
     const handleChange = (event) => {
@@ -13,20 +17,27 @@ const AddComment = () => {
 
     const handleComment = (event) => {
         event.preventDefault();
-        const body = event.target[0].value;
-        postComment(article_id, author, body).then(() => {
+        
+        postComment(article_id, {username: user.username, body: comment}).then((res) => {
+            const newComments = comments.map((comment) => {
+                return comment
+            })
+            newComments.push(res[0])
+            setComments(newComments)
             setComment('');
+            console.log(res)
         })
     }
+
+   
 
 
 return (
     <div>
     <form onSubmit={handleComment} className='commentForm'>
-        <textarea type="text" onChange={handleChange} name='body' value={comment}>
-            Please enter your comment
+        <textarea type="text" onChange={handleChange} name='body' value={comment} placeholder='What do you think?'>
             </textarea>
-        <button type='submit'>Enter</button>
+        <button type='submit'>Post a comment</button>
     </form>
     </div>
 )
