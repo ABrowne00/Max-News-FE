@@ -24,7 +24,7 @@ useEffect(() => {
         <span className='topicsNav'>
         {topics.map((topic) => {
             return (
-                <NavLink to={`/articles?topic=${topic.slug}`} className="singleTopic">{topic.slug}</NavLink>
+                <NavLink to={`/articles?topic=${topic.slug}`} className={isActive=> "singleTopic" + (!isActive ?  "unselected" : "")}>{topic.slug}</NavLink>
             )
         })}
      </span>
