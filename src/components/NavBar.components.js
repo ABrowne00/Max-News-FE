@@ -1,22 +1,33 @@
-import { Link } from "react-router-dom";
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { UserContext } from "../utils/Context";
+import { getTopics } from "../utils/api";
+import { NavLink } from "react-router-dom";
+
+
 
 const NavBar = () => {
 
+const [topics, setTopics] = useState([])
 const {user, setUser } = useContext(UserContext)
+
+useEffect(() => {
+    getTopics().then((res) => {
+        setTopics(res)
+    })
+}, []);
 
     return (
         <>
-        <div className="navBar">
-        <h1>Max News</h1>
-        <nav >
-        <Link to='/' className="homeNav">Home</Link>
-        <label for='topics'>Topics: 
-        <Link to='/articles?topic=cooking' className='cookNav'>Cooking</Link>
-        <Link to='/articles?topic=coding' className='codingNav'>Coding</Link>
-        <Link to='/articles?topic=football' className='footballNav'>Football</Link>
-        </label>
+       
+        <nav className="navBar" >
+        <NavLink to='/' className="homeNav">Max News</NavLink>
+        <span className='topicsNav'>
+        {topics.map((topic) => {
+            return (
+                <NavLink to={`/articles?topic=${topic.slug}`} className="singleTopic">{topic.slug}</NavLink>
+            )
+        })}
+     </span>
        </nav>
        
         <div className="login">
@@ -34,9 +45,10 @@ const {user, setUser } = useContext(UserContext)
                 }}>Log In</button>
             )
             }
-        </div>
+            </div>
        
-</div>
+       
+
         </>
     )
 }
