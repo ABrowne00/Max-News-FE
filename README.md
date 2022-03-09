@@ -11,7 +11,7 @@ Cloning the respository
 
 If you want to work with this repository locally you will need to clone it onto your local machine. To do this, navigate to where in your file system you want the repository to be saved in the command line, and run the following command:
 
-git clone 
+git clone - https://github.com/ABrowne00/Max-News-FE.git
 
 ## Installing dependencies
 
@@ -30,10 +30,10 @@ npm install @mui/icons-material
 
 ## Link
 
-An online hosted version of this repository can be found at:
+An online hosted version of this repository can be found at: https://max-news.netlify.app/
 
 
-How to test this app -
+## How to test this app -
 
 You can just navigate through the app and read articles and comments. But if you want to post a comment on an article, you will need to login first. You can login as a dummy user "jessjelly" , by clicking the button in the top-right corner.
 
@@ -46,8 +46,8 @@ If you want to test this app locally, just run command 'npm start' in your comma
 
 This project's backend repo can be cloned from here-
 
-git clone 
+git clone - https://github.com/ABrowne00/Max-News-BE.git
 
 An online hosted version of this backend repository can be found at:
 
-
+https://maximum-news.herokuapp.com/api
