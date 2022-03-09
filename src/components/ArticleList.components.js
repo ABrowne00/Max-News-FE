@@ -10,7 +10,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 const ArticleList = () => {
 
-    let [searchParams, setSearchParams] = useSearchParams();
+    let [searchParams] = useSearchParams();
     const [articles, setArticles] = useState([])
     const [sortValue, setSortValue] = useState('created_at')
 

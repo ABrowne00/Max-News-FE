@@ -1,9 +1,7 @@
 import { postComment } from "../utils/api";
-import React, {useState, useEffect, useContext } from 'react';
+import React, {useState,  useContext } from 'react';
 import { useParams } from "react-router";
 
-import ArticleComments from '../components/ArticleComments.components'
-import Comments from "../components/ArticleComments.components";
 import { UserContext } from "../utils/Context";
 
 const AddComment = (  {comments, setComments } ) => {

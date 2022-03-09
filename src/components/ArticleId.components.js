@@ -1,4 +1,4 @@
-import { downVote, getArticleById, updateVotes } from "../utils/api";
+import { getArticleById, updateVotes } from "../utils/api";
 import Comments from "../components/ArticleComments.components";
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -8,12 +8,12 @@ import { IconButton } from "@mui/material";
 import ThumbUp from "@mui/icons-material/ThumbUp";
 
 
-const ArticleId = (votes) => {
+const ArticleId = () => {
    
    
     const { article_id } = useParams();
     const [article, setArticle ] = useState([]);
-    const [articleVotes, setVotes] = useState(votes)
+    
     const [disable, setDisable] = useState(false)
 
     
@@ -28,9 +28,9 @@ const ArticleId = (votes) => {
     }, [article_id]);
 
     const handleVote = () => {
-        setVotes((currVotes) => currVotes + 1);
+       
         updateVotes(article_id)
-        {article.votes += 1}
+        article.votes += 1
         setDisable(true);
     }
 

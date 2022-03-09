@@ -14,7 +14,7 @@ const Comments = () => {
         getComments(article_id).then((res) => {
             setComments(res)
         })
-    }, []);
+    }, [article_id]);
 
     const onDelete = (comment_id) => {
         deleteComment(comment_id)
