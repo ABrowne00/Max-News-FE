@@ -34,9 +34,10 @@ useEffect(() => {
             {user.username ? (
                 <div className='loggedIn'>
                     <p>Logged in as {user.username}</p>
+                    <button className='login_button' onClick={() => {setUser(!user)}}>Log Out</button>
                 </div>
             ) : (
-                <button className='logBtn' onClick={() => {
+                <button className='login_button' onClick={() => {
                     setUser({
                         username: 'jessjelly',
                         name: 'Jess Jelly',

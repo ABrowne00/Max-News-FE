@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState } from 'react';
 
 
 
@@ -9,7 +9,7 @@ const Expandable = ({ children }) => {
 
     return (
         <div>
-            <button onClick={toggleOpen}>Load Comments</button>
+            <button onClick={toggleOpen} className='loadBtn'>Load Comments</button>
             {isOpen && children}
         </div>
     )

@@ -29,11 +29,13 @@ export const getArticles  = (searchTopic, sortValue, order) => {
     })
 }
 
+
 export const getArticleById = (article_id) => {
     return newsApi.get(`/articles/${article_id}`).then((res) => {
         return res.data.article;
     })
 }
+
 
 export const getComments = (article_id) => {
     return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
@@ -41,11 +43,13 @@ export const getComments = (article_id) => {
     })
 }
 
+
 export const updateVotes = (article_id) => {
     return newsApi.patch(`articles/${article_id}`, {inc_votes: 1}).then((res) => {
         return res.data.article.votes
     })
 }
+
 
 export const downVote = (article_id) => {
     return newsApi.patch(`article/${article_id}`, {inc_votes: -1}).then((res) => {

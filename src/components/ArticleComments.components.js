@@ -39,9 +39,10 @@ const Comments = () => {
                 {comments.map((comment) => {
                     return (
                         <li key={comment.comment_id} className="commentCard">
-                            <h6>{comment.author}  {comment.created_at}</h6>
+                            <h4 className="commentAuthor">{comment.author}</h4>
+                            <h6>{comment.created_at.split('T')[0]}</h6>
                             <p>{comment.body}</p> 
-                            <p>{comment.votes}</p>
+                           
                             { user.username === comment.author ? (
                             <button type='button' className='deletBtn' onClick={() => onDelete(comment.comment_id)}>Delete</button>
                             ) : null} 

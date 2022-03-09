@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Expandable from "../components/Exapandable.components";
 import NavBar from "./NavBar.components";
-
+import { IconButton } from "@mui/material";
+import ThumbUp from "@mui/icons-material/ThumbUp";
 
 
 const ArticleId = (votes) => {
@@ -13,11 +14,15 @@ const ArticleId = (votes) => {
     const { article_id } = useParams();
     const [article, setArticle ] = useState([]);
     const [articleVotes, setVotes] = useState(votes)
+    const [disable, setDisable] = useState(false)
+
+    
 
 
     useEffect(() => {
         getArticleById(article_id).then((res) => {
             setArticle(res)
+          
             
         })
     }, [article_id]);
@@ -26,7 +31,7 @@ const ArticleId = (votes) => {
         setVotes((currVotes) => currVotes + 1);
         updateVotes(article_id)
         {article.votes += 1}
-        document.getElementById('myUp').disabled = true;
+        setDisable(true);
     }
 
    
@@ -34,22 +39,29 @@ const ArticleId = (votes) => {
     
 
     return (
+
+      <div>
+          
         <div className='SingleArticle'>
+            
             <NavBar />
             <div className='centerArticle'>
                  <h2>{article.title}</h2>
                  <h5>{article.author}</h5>
             </div>
-            <h6> {article.created_at}</h6>
             <div className='articleCard'>
             <p>{article.body}</p>
+                <div className='articleVote'>
+            <IconButton onClick={handleVote}  disabled={disable}><ThumbUp color={disable ? 'grey' : 'primary'}/></IconButton>
             <p>{article.votes}</p>
-            <button onClick={handleVote} id='myUp'>I love it</button>
+            </div>
             </div>
         <Expandable>
                 <Comments />
             </Expandable>
-           
+      
+        </div>
+      
         </div>
     )
 }

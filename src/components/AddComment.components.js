@@ -11,6 +11,8 @@ const AddComment = (  {comments, setComments } ) => {
     const   { user }  = useContext(UserContext);
     const { article_id } = useParams();
 
+
+
     const handleChange = (event) => {
         setComment(event.target.value)
     }
@@ -34,11 +36,15 @@ const AddComment = (  {comments, setComments } ) => {
 
 return (
     <div>
-    <form onSubmit={handleComment} className='commentForm'>
-        <textarea type="text" onChange={handleChange} name='body' value={comment} placeholder='What do you think?'>
+
+        {user.username ? (
+    <form onSubmit={handleComment} className='comment_form'>
+        <textarea type="text" onChange={handleChange} name='body' value={comment} placeholder='What do you think?' className="post_comment">
             </textarea>
-        <button type='submit'>Post a comment</button>
-    </form>
+        <button type='submit' className='submit_comment'>Post comment</button>
+    </form> ) : (<text>Please login to leave a comment</text>)
+
+}
     </div>
 )
 

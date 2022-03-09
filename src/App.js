@@ -31,18 +31,3 @@ function App() {
 export default App;
 
 
-
-
-/* <>
-<Header />
-<h2>List of items</h2>
-<ul>
-    {items.map((item) => {
-        return (
-        <Link key={item.item_id} to={`/items/${item.item_id}`}>
-            <li>{item.item_name}</li>
-            </Link>
-        )
-    })}
-</ul>
-</> */
