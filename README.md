@@ -1,11 +1,8 @@
 # NC News app
 
-This project was created with Create React App.
-
-## About
 
 This is a simple news feed app where you can see news feed about different topics. You can read articles and vote for it. You can also comment on any article, update or even delete your own comment. You can sort article by topics, article date and by author name as well.
-Setup
+
 
 ## System requirements
 
