@@ -23,10 +23,10 @@ or
 
 you can install them by running these commands in terminal
 
-npm install react-router-dom
-npm i axios 
-npm install @mui/material @emotion/react @emotion/styled
-npm install @mui/icons-material
+npm install react-router-dom  
+npm i axios   
+npm install @mui/material @emotion/react @emotion/styled  
+npm install @mui/icons-material  
 
 ## Link
 
